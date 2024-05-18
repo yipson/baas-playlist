@@ -31,4 +31,9 @@ public class PlaylistService implements PlaylistPort {
     public String getDescription(String listName) {
         return playListRepositoryPort.findByName(listName);
     }
+
+    @Override
+    public void delete(String listName) {
+        playListRepositoryPort.delete(listName);
+    }
 }

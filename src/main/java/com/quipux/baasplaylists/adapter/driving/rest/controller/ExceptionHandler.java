@@ -2,6 +2,7 @@ package com.quipux.baasplaylists.adapter.driving.rest.controller;
 
 import com.quipux.baasplaylists.adapter.driving.rest.model.PlaylistExceptionDto;
 import com.quipux.baasplaylists.utils.BadRequestException;
+import com.quipux.baasplaylists.utils.DuplicateRecordException;
 import com.quipux.baasplaylists.utils.PlayListNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,13 @@ public class ExceptionHandler {
     public ResponseEntity<PlaylistExceptionDto> handleBadRequestException(BadRequestException ex) {
         PlaylistExceptionDto exceptionDto = new PlaylistExceptionDto(ex.getMessage(), String.valueOf(HttpStatus.BAD_REQUEST.value()));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(exceptionDto);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(DuplicateRecordException.class)
+    public ResponseEntity<PlaylistExceptionDto> handleDuplicateRecordException(DuplicateRecordException ex) {
+        PlaylistExceptionDto exceptionDto = new PlaylistExceptionDto(ex.getMessage(), String.valueOf(HttpStatus.CONFLICT.value()));
+        return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(exceptionDto);
     }
 }
