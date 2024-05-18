@@ -8,4 +8,5 @@ import java.util.List;
 public interface PlaylistPort {
     Playlist create(Playlist playlist);
     List<Playlist> getPlayLists();
+    String getDescription(String listName);
 }
