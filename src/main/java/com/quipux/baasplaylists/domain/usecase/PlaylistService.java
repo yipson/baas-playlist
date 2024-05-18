@@ -26,4 +26,9 @@ public class PlaylistService implements PlaylistPort {
     public List<Playlist> getPlayLists() {
         return playListRepositoryPort.findAll();
     }
+
+    @Override
+    public String getDescription(String listName) {
+        return playListRepositoryPort.findByName(listName);
+    }
 }

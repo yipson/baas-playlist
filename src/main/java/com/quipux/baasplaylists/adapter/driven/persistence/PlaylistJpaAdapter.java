@@ -5,6 +5,7 @@ import com.quipux.baasplaylists.adapter.driving.rest.model.CreatePlaylistDto;
 import com.quipux.baasplaylists.adapter.mapper.PlaylistMapper;
 import com.quipux.baasplaylists.domain.model.Playlist;
 import com.quipux.baasplaylists.domain.repository.PlayListRepositoryPort;
+import com.quipux.baasplaylists.utils.PlayListNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,5 +33,11 @@ public class PlaylistJpaAdapter implements PlayListRepositoryPort {
         return playlistJpaRepository.findAll().stream()
                 .map(PlaylistMapper::entityToDomain)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public String findByName(String listName) {
+        return playlistJpaRepository.findByName(listName)
+                .orElseThrow(() -> new PlayListNotFoundException("The playlist was not found"));
     }
 }

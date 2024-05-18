@@ -8,4 +8,5 @@ import java.util.List;
 public interface PlayListRepositoryPort {
     Playlist save(Playlist playlist);
     List<Playlist> findAll();
+    String findByName(String listName);
 }

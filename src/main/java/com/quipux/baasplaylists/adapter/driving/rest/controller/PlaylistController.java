@@ -2,13 +2,16 @@ package com.quipux.baasplaylists.adapter.driving.rest.controller;
 
 import com.quipux.baasplaylists.adapter.driving.rest.model.CreatePlaylistDto;
 
+import com.quipux.baasplaylists.adapter.driving.rest.model.DescriptionDto;
 import com.quipux.baasplaylists.adapter.mapper.PlaylistMapper;
 import com.quipux.baasplaylists.domain.model.Playlist;
 import com.quipux.baasplaylists.domain.usecase.port.PlaylistPort;
+import com.quipux.baasplaylists.utils.BadRequestException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,14 +34,14 @@ public class PlaylistController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CreatePlaylistDto> createPlaylist(@RequestBody CreatePlaylistDto createPlaylistDto){
-        if(createPlaylistDto.getName() == null || StringUtils.isEmpty(createPlaylistDto.getName())) {
-            return ResponseEntity.badRequest().body(CreatePlaylistDto.builder().description("Error name must not be null").build());
-        }
         Playlist playlist = this.createPlaylistBuildRequest(createPlaylistDto);
         return this.createPlaylistBuildResponse(playlist);
     }
 
     private Playlist createPlaylistBuildRequest(CreatePlaylistDto createPlaylistDto) {
+        if(createPlaylistDto.getName() == null || StringUtils.isEmpty(createPlaylistDto.getName())) {
+            throw new BadRequestException("Error name must not be null");
+        }
         return PlaylistMapper.rqToDomain(createPlaylistDto);
     }
 
@@ -62,6 +65,13 @@ public class PlaylistController {
         return ResponseEntity.ok(playlists.stream()
                 .map(PlaylistMapper::domainToRs)
                 .collect(Collectors.toList()));
+    }
+
+    @GetMapping(value = "/{list-name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<DescriptionDto> getDescription(@PathVariable("list-name") String listName){
+        return ResponseEntity.ok(DescriptionDto.builder()
+                        .description(playlistPort.getDescription(listName))
+                .build());
     }
 
 }
