@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController()
 @RequestMapping("/api/v1/lists")
@@ -54,5 +56,12 @@ public class PlaylistController {
                 .body(createdPlaylist);
     }
 
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<CreatePlaylistDto>> getPlayLists(){
+        List<Playlist> playlists =  playlistPort.getPlayLists();
+        return ResponseEntity.ok(playlists.stream()
+                .map(PlaylistMapper::domainToRs)
+                .collect(Collectors.toList()));
+    }
 
 }
