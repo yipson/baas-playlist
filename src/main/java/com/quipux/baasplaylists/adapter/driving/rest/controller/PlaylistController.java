@@ -6,6 +6,7 @@ import com.quipux.baasplaylists.adapter.driving.rest.model.DescriptionDto;
 import com.quipux.baasplaylists.adapter.mapper.PlaylistMapper;
 import com.quipux.baasplaylists.domain.model.Playlist;
 import com.quipux.baasplaylists.domain.usecase.port.PlaylistPort;
+import com.quipux.baasplaylists.utils.BadRequestException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -33,14 +34,14 @@ public class PlaylistController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CreatePlaylistDto> createPlaylist(@RequestBody CreatePlaylistDto createPlaylistDto){
-        if(createPlaylistDto.getName() == null || StringUtils.isEmpty(createPlaylistDto.getName())) {
-            return ResponseEntity.badRequest().body(CreatePlaylistDto.builder().description("Error name must not be null").build());
-        }
         Playlist playlist = this.createPlaylistBuildRequest(createPlaylistDto);
         return this.createPlaylistBuildResponse(playlist);
     }
 
     private Playlist createPlaylistBuildRequest(CreatePlaylistDto createPlaylistDto) {
+        if(createPlaylistDto.getName() == null || StringUtils.isEmpty(createPlaylistDto.getName())) {
+            throw new BadRequestException("Error name must not be null");
+        }
         return PlaylistMapper.rqToDomain(createPlaylistDto);
     }
 
