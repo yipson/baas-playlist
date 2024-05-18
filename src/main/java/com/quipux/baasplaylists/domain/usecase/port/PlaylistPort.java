@@ -9,4 +9,5 @@ public interface PlaylistPort {
     Playlist create(Playlist playlist);
     List<Playlist> getPlayLists();
     String getDescription(String listName);
+    void delete(String listName);
 }

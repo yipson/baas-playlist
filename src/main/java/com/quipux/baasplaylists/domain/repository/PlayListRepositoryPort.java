@@ -9,4 +9,5 @@ public interface PlayListRepositoryPort {
     Playlist save(Playlist playlist);
     List<Playlist> findAll();
     String findByName(String listName);
+    void delete(String listName);
 }
