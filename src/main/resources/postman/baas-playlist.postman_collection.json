@@ -71,7 +71,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"name4\",\r\n    \"description\": \"esta es una cancion\",\r\n    \"songs\": [\r\n        {\r\n            \"title\": \"1\",\r\n            \"artist\": \"1\",\r\n            \"album\": \"1\",\r\n            \"year\": \"1\",\r\n            \"gender\": \"1\"\r\n        },\r\n        {\r\n            \"title\": \"2\",\r\n            \"artist\": \"2\",\r\n            \"album\": \"2\",\r\n            \"year\": \"2\",\r\n            \"gender\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"name\": \"\",\r\n    \"description\": \"esta es una cancion\",\r\n    \"songs\": [\r\n        {\r\n            \"title\": \"1\",\r\n            \"artist\": \"1\",\r\n            \"album\": \"1\",\r\n            \"year\": \"1\",\r\n            \"gender\": \"1\"\r\n        },\r\n        {\r\n            \"title\": \"2\",\r\n            \"artist\": \"2\",\r\n            \"album\": \"2\",\r\n            \"year\": \"2\",\r\n            \"gender\": \"2\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -120,6 +120,38 @@
 						"api",
 						"v1",
 						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGenres",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/v1/recommendations/available-genre-seeds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"recommendations",
+						"available-genre-seeds"
 					]
 				}
 			},

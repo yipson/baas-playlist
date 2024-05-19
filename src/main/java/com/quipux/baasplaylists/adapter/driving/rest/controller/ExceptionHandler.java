@@ -1,9 +1,9 @@
 package com.quipux.baasplaylists.adapter.driving.rest.controller;
 
 import com.quipux.baasplaylists.adapter.driving.rest.model.PlaylistExceptionDto;
-import com.quipux.baasplaylists.utils.exception.BadRequestException;
-import com.quipux.baasplaylists.utils.exception.DuplicateRecordException;
-import com.quipux.baasplaylists.utils.exception.PlayListNotFoundException;
+import com.quipux.baasplaylists.utils.BadRequestException;
+import com.quipux.baasplaylists.utils.DuplicateRecordException;
+import com.quipux.baasplaylists.utils.PlayListNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

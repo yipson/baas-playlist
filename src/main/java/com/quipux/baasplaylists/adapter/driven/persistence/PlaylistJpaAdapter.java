@@ -4,11 +4,12 @@ import com.quipux.baasplaylists.adapter.driven.persistence.entity.PlaylistEntity
 import com.quipux.baasplaylists.adapter.mapper.PlaylistMapper;
 import com.quipux.baasplaylists.domain.model.Playlist;
 import com.quipux.baasplaylists.domain.repository.PlayListRepositoryPort;
-import com.quipux.baasplaylists.utils.exception.DuplicateRecordException;
-import com.quipux.baasplaylists.utils.exception.PlayListNotFoundException;
+import com.quipux.baasplaylists.utils.DuplicateRecordException;
+import com.quipux.baasplaylists.utils.PlayListNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

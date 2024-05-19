@@ -1,5 +1,6 @@
 package com.quipux.baasplaylists.domain.repository;
 
+import com.quipux.baasplaylists.adapter.driving.rest.model.CreatePlaylistDto;
 import com.quipux.baasplaylists.domain.model.Playlist;
 
 import java.util.List;
