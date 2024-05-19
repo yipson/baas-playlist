@@ -5,7 +5,7 @@ import com.quipux.baasplaylists.auth.controller.model.AuthenticationRq;
 import com.quipux.baasplaylists.auth.controller.model.UserDto;
 import com.quipux.baasplaylists.auth.entity.UserEntity;
 import com.quipux.baasplaylists.auth.repository.UserJpaRepository;
-import com.quipux.baasplaylists.utils.BadRequestException;
+import com.quipux.baasplaylists.utils.exception.BadRequestException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
