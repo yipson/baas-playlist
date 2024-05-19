@@ -1,6 +1,5 @@
 package com.quipux.baasplaylists.domain.usecase;
 
-import com.quipux.baasplaylists.adapter.driving.rest.model.CreatePlaylistDto;
 import com.quipux.baasplaylists.domain.model.Playlist;
 import com.quipux.baasplaylists.domain.repository.PlayListRepositoryPort;
 import com.quipux.baasplaylists.domain.usecase.port.PlaylistPort;
