@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "fcdd4c53-2e92-4696-b028-a3eea7c6e56a",
+		"name": "baas-playlist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17573969",
+		"_collection_link": "https://speeding-firefly-935422.postman.co/workspace/New-Team-Workspace~c84af7fe-fb63-48de-a799-98af320595db/collection/17573969-fcdd4c53-2e92-4696-b028-a3eea7c6e56a?action=share&source=collection_link&creator=17573969"
+	},
+	"item": [
+		{
+			"name": "createPlaylist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"playlist\",\r\n    \"description\": \"this is a play list\",\r\n    \"songs\": [\r\n        {\r\n            \"title\": \"1\",\r\n            \"artist\": \"1\",\r\n            \"album\": \"1\",\r\n            \"year\": \"1\",\r\n            \"gender\": \"1\"\r\n        },\r\n        {\r\n            \"title\": \"2\",\r\n            \"artist\": \"2\",\r\n            \"album\": \"2\",\r\n            \"year\": \"2\",\r\n            \"gender\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/v1/lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPlaylist - EXCEPTION",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"name4\",\r\n    \"description\": \"esta es una cancion\",\r\n    \"songs\": [\r\n        {\r\n            \"title\": \"1\",\r\n            \"artist\": \"1\",\r\n            \"album\": \"1\",\r\n            \"year\": \"1\",\r\n            \"gender\": \"1\"\r\n        },\r\n        {\r\n            \"title\": \"2\",\r\n            \"artist\": \"2\",\r\n            \"album\": \"2\",\r\n            \"year\": \"2\",\r\n            \"gender\": \"2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/api/v1/lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPlayLists",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/v1/lists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDescriptionByName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/v1/lists/playlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"lists",
+						"playlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDescriptionByName - EXCEPTION",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/v1/lists/N4M3N0TF0uND",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"lists",
+						"N4M3N0TF0uND"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePlaylist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8181/api/v1/lists/playlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"lists",
+						"playlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"const jwt = response.jwt;\r",
+							"\r",
+							"pm.environment.set(\"jwt\", jwt);\r",
+							"\r",
+							"console.log(\"Nuevo token JWT guardado en variable de entorno:\", jwt);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user1\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8181/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
