@@ -38,6 +38,12 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 			<version>2.5.6</version>
 		</dependency>
+		<!-- Feign Form Encoder -->
+		<dependency>
+			<groupId>io.github.openfeign.form</groupId>
+			<artifactId>feign-form</artifactId>
+			<version>3.8.0</version>
+		</dependency>
 
 		<!-- Database -->
 		<dependency>

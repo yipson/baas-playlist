@@ -1,6 +1,6 @@
 package com.quipux.baasplaylists.domain.usecase.port;
 
-import com.quipux.baasplaylists.adapter.driving.rest.model.CreatePlaylistDto;
+import com.quipux.baasplaylists.domain.model.Genres;
 import com.quipux.baasplaylists.domain.model.Playlist;
 
 import java.util.List;
@@ -10,4 +10,5 @@ public interface PlaylistPort {
     List<Playlist> getPlayLists();
     String getDescription(String listName);
     void delete(String listName);
+    Genres getGenders();
 }

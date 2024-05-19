@@ -1,4 +1,4 @@
-package com.quipux.baasplaylists.utils;
+package com.quipux.baasplaylists.utils.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
