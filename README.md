@@ -1,5 +1,5 @@
 # baas-playlist
-Este proyecto es un baas (backend as a service) de una lista de reproduccion que permite: 
+Este proyecto, desarrollado con una arquitectura hexagonal, es un baas (backend as a service) de una lista de reproduccion que permite: 
  - crear playlist
  - obtener el listado de playlists
  - obtener la descripcion por el nombre de la playlist
